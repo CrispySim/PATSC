@@ -62,7 +62,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .btn-dark{background:var(--ink);color:#fff}
 .btn-dark:hover{background:#2b2b2b;color:#fff}
 .btn-outline{background:transparent;color:inherit;border-color:currentColor}
-.btn-sm{min-height:44px;padding:0 20px;font-size:15px}
+.btn-sm{min-height:44px;padding:0 18px;font-size:15px}
 .on-dark .btn-primary{background:var(--purple);color:#fff}
 .on-dark .btn-primary:hover{background:#8b5cf6;color:#fff}
 .on-dark .btn-outline{color:#fff}
@@ -80,10 +80,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .stack{display:flex;flex-direction:column}
 .gap-8{gap:8px}.gap-16{gap:16px}.gap-24{gap:24px}.gap-32{gap:32px}
 .lede{font-size:clamp(18px,1.7vw,21px);line-height:1.55;max-width:34em}
+@media (min-width:1000px){.hero-photo .split{grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);gap:40px 48px}.hero-photo .lede{font-size:18px;max-width:none;white-space:nowrap}}
 .measure{max-width:38em}
 
 /* hero */
 .hero{padding-bottom:clamp(48px,7vw,96px)}
+.hero-photo{position:relative;overflow:hidden;padding-bottom:clamp(56px,8vw,120px)}
+.hero-photo .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%}
+.hero-photo .hero-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,17,17,.93) 0%,rgba(17,17,17,.78) 50%,rgba(17,17,17,.4) 100%)}
+.hero-photo .split{position:relative;padding-top:clamp(40px,7vw,104px)}
+@media (max-width:760px){.hero-photo .hero-scrim{background:rgba(17,17,17,.82)}}
+.eyebrow{font-family:var(--display);font-weight:600;font-size:clamp(15px,1.5vw,19px);letter-spacing:.08em;text-transform:uppercase;color:var(--purple-light)}
 .hero .split{padding-top:clamp(24px,5vw,72px)}
 .hero p.lede{color:#e4e4e7}
 .page-hero{padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(40px,6vw,80px)}
@@ -92,8 +99,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 /* card with dates */
 .datecard{background:var(--paper);color:var(--ink);border-radius:8px;padding:clamp(20px,3vw,36px)}
 .datecard h2{font-size:22px;margin-bottom:8px}
-.daterow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:18px 0;border-top:1px solid var(--line)}
-.daterow .d{font-family:var(--display);font-size:clamp(22px,2.4vw,28px);font-weight:700;letter-spacing:-0.01em;line-height:1.15}
+.daterow{display:flex;flex-wrap:nowrap;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
+.daterow>div{min-width:0}
+.daterow .btn{flex-shrink:0}
+.daterow .d{font-family:var(--display);font-size:clamp(19px,1.5vw,20px);font-weight:700;letter-spacing:-0.01em;line-height:1.15}
 .daterow .s{font-size:15px;color:var(--ink-3)}
 .datecard .btn-dark{background:var(--purple)}
 .datecard .btn-dark:hover{background:var(--purple-deep)}
@@ -108,13 +117,19 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 
 /* facts */
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:32px}
-.facts .big{font-family:var(--display);font-size:clamp(36px,4vw,48px);font-weight:800;line-height:1;letter-spacing:-0.02em;color:var(--purple-deep)}
+.facts .big{font-family:var(--display);font-size:clamp(30px,3vw,36px);white-space:nowrap;font-weight:800;line-height:1;letter-spacing:-0.02em;color:var(--purple-deep)}
 .facts p{color:var(--ink-2);font-size:16px;line-height:1.55}
 
 /* photos */
 .photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px}
 .photo{aspect-ratio:4/3;background:var(--wash);border:2px dashed #8a8a8a;border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:15px;color:var(--ink-2)}
 .photos img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:8px;display:block;background:var(--wash)}
+.spot{display:block;width:100%;max-width:340px;height:auto;justify-self:center}
+.spot-sm{max-width:200px;justify-self:start}
+.map{display:block;width:100%;height:clamp(260px,34vw,380px);border:0;border-radius:8px;background:var(--wash)}
+.where{align-items:start}
+.where .map{height:100%;min-height:360px}
+.schematic img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
 .band{margin:0}
 .band img{display:block;width:100%;height:clamp(220px,36vw,520px);object-fit:cover;object-position:50% 62%}
 .banner img{display:block;width:100%;height:auto;aspect-ratio:21/9;object-fit:cover;object-position:50% 45%;border-radius:8px}
@@ -122,6 +137,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 /* faculty + quotes */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px}
 .person{border-top:3px solid var(--purple);padding-top:16px}
+.person h3{margin-bottom:8px}
+.portrait{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:8px;margin-bottom:16px;background:var(--wash)}
+.cards.faculty{grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:40px 28px}
 .person .avatar{aspect-ratio:1/1;background:var(--wash);border:2px dashed #8a8a8a;border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--ink-2);font-size:15px;margin-bottom:16px}
 .person p{color:var(--ink-2);font-size:16px}
 .quote{margin:0;padding:0;border-top:3px solid var(--purple);padding-top:16px}
@@ -145,7 +163,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 dl.kv{margin:0;display:grid;grid-template-columns:minmax(0,1fr);gap:4px}
 dl.kv dt{font-weight:600}
 dl.kv dd{margin:0 0 16px;color:var(--ink-2)}
-.big-link{font-size:clamp(20px,2.4vw,28px);font-family:var(--display);font-weight:700;letter-spacing:-0.01em;min-height:44px;display:inline-flex;align-items:center;word-break:break-word}
+.big-link{font-size:clamp(17px,1.7vw,22px);font-family:var(--display);font-weight:700;letter-spacing:-0.01em;min-height:44px;display:inline-flex;align-items:center;word-break:break-word}
 .notice{border:2px solid var(--purple);background:var(--purple-soft);color:var(--ink);border-radius:8px;padding:20px 24px}
 .notice p{color:var(--ink)}
 
@@ -175,16 +193,21 @@ dl.kv dd{margin:0 0 16px;color:var(--ink-2)}
 <main id="main">
 <section class="on-dark page-hero">
 <div class="wrap stack gap-24">
+<p class="eyebrow">Paediatric Advanced Trauma Skills Course</p>
 <h1>Faculty</h1>
-<p class="lede">Consultants from across the paediatric trauma team.</p>
+<p class="lede">The clinicians who teach on the course.</p>
 </div>
 </section>
 
 <section class="section">
 <div class="wrap stack gap-32">
-<figure class="banner" style="margin:0"><img src="../assets/course-debrief.jpg" alt="Faculty and delegates in a debrief discussion around a table" width="1400" height="784" loading="lazy"></figure>
-<p class="measure muted"><span class="todo">[Add an intro line about the faculty. Copy each person&rsquo;s name, role and photo from the current Faculty page, then duplicate or delete the cards below as needed.]</span></p>
-<div class="cards"><div class="person"><div class="avatar">[Photo]</div><h3><span class="todo">[Name]</span></h3><p><span class="todo">[Role, specialty and hospital]</span></p></div><div class="person"><div class="avatar">[Photo]</div><h3><span class="todo">[Name]</span></h3><p><span class="todo">[Role, specialty and hospital]</span></p></div><div class="person"><div class="avatar">[Photo]</div><h3><span class="todo">[Name]</span></h3><p><span class="todo">[Role, specialty and hospital]</span></p></div><div class="person"><div class="avatar">[Photo]</div><h3><span class="todo">[Name]</span></h3><p><span class="todo">[Role, specialty and hospital]</span></p></div><div class="person"><div class="avatar">[Photo]</div><h3><span class="todo">[Name]</span></h3><p><span class="todo">[Role, specialty and hospital]</span></p></div><div class="person"><div class="avatar">[Photo]</div><h3><span class="todo">[Name]</span></h3><p><span class="todo">[Role, specialty and hospital]</span></p></div></div>
+<div class="cards faculty"><article class="person"><img class="portrait" src="../assets/faculty-ami-parikh.jpg" alt="Photo of Ami Parikh" width="440" height="550" loading="lazy"><h3>Ami Parikh</h3><p>Ami is a Consultant in Paediatric Emergency Medicine and the Medical Director for Simulation for Barts Health Trust. She has a special interest in paediatric and adolescent trauma education, based at the Royal London Hospital.</p></article><article class="person"><img class="portrait" src="../assets/faculty-erica-makin.jpg" alt="Photo of Erica Makin" width="440" height="550" loading="lazy"><h3>Erica Makin</h3><p>Erica is a Consultant Paediatric Surgeon at King&rsquo;s College Hospital with a subspecialist interest in Paediatric Hepatobiliary Surgery and Trauma. Erica is the Clinical Lead for Paediatric Surgery and Paediatric Trauma Lead for SELKaM Trauma Network. She is a member of the British Association of Paediatric Surgeons and is the chair of the Trauma Committee.</p></article><article class="person"><img class="portrait" src="../assets/faculty-naomi-edmonds.jpg" alt="Photo of Naomi Edmonds" width="440" height="550" loading="lazy"><h3>Naomi Edmonds</h3><p>Naomi is a Consultant in Paediatric Intensive Care and Anaesthetics with a specialist interest in paediatric and adolescent trauma, based at the Royal London Hospital.</p></article><article class="person"><img class="portrait" src="../assets/faculty-breda-oneill.jpg" alt="Photo of Breda O&rsquo;Neill" width="440" height="550" loading="lazy"><h3>Breda O&rsquo;Neill</h3><p>Breda is a Consultant Anaesthetist with a specialist interest in paediatric and adolescent trauma, based at the Royal London Hospital.</p></article><article class="person"><img class="portrait" src="../assets/faculty-sarah-gamester.jpg" alt="Photo of Sarah Gamester" width="440" height="550" loading="lazy"><h3>Sarah Gamester</h3><p>Sarah is the Lead Nurse for the Paediatric Emergency Department at The Royal London Hospital. She is passionate about clinical leadership and education when caring for critically ill and injured children.</p></article><article class="person"><img class="portrait" src="../assets/faculty-tim-lawrence.jpg" alt="Photo of Tim Lawrence" width="440" height="550" loading="lazy"><h3>Tim Lawrence</h3><p>Tim Lawrence is a Consultant Paediatric Neurosurgeon and clinical lead for Paediatric Major Trauma at the Oxford Major Trauma Centre. He sub-specialises in Neuro-Trauma and Craniofacial surgery. Following Neurosurgical training in Oxford, and a Paediatric Neurosurgery fellowship, Tim undertook a DPhil in traumatic brain injury. His research focuses on the secondary injury cascade during the hyper-acute phase following injury.</p></article><article class="person"><img class="portrait" src="../assets/faculty-chris-parsons.jpg" alt="Photo of Chris Parsons" width="440" height="550" loading="lazy"><h3>Chris Parsons</h3><p>Chris is a Paediatric Surgeon with an interest in child and adolescent trauma based in Leeds.</p></article><article class="person"><img class="portrait" src="../assets/faculty-luke-whittemore.jpg" alt="Photo of Luke Whittemore" width="440" height="550" loading="lazy"><h3>Luke Whittemore</h3><p>Luke is the Matron for the Paediatric Emergency Department at the Royal London Hospital. He has worked previously at the John Radcliffe Hospital in Oxford, and has done prior roles working as a Safeguarding Children&rsquo;s Advisor and working pre hospitally as an Ambulance Nurse with South Central Ambulance Service.</p></article><article class="person"><img class="portrait" src="../assets/faculty-anna-dobbie.jpg" alt="Photo of Anna Dobbie" width="440" height="550" loading="lazy"><h3>Anna Dobbie</h3><p>Anna is a Consultant in Emergency Medicine working in both the paediatric and adult departments at the Royal London Hospital. She is also a Consultant in Prehospital Care and works for London HEMS. She has specialist interests in Paediatric trauma and team leadership both in hospital and in the prehospital arena.</p></article><article class="person"><img class="portrait" src="../assets/faculty-craig-knott.jpg" alt="Photo of Craig Knott" width="440" height="550" loading="lazy"><h3>Craig Knott</h3><p>Craig is a Paediatric Intensive Care consultant at Royal London Hospital in East London. He completed his training in paediatrics and paediatric intensive care Medicine in North London and Toronto, Canada, and was a locum consultant at the Children&rsquo;s Acute Transport Service (CATS). His work interests are multi professional education and training, patient safety and human factors, and paediatric major trauma.</p></article><article class="person"><img class="portrait" src="../assets/faculty-alexandra-pelivan.jpg" alt="Photo of Alexandra Pelivan" width="440" height="550" loading="lazy"><h3>Alexandra Pelivan</h3><p>Alex is a PEM Consultant at the Royal London Hospital. Her special interests are Paediatric Trauma and Adolescent Emergency Medicine. She is passionate about improving the care of adolescents who present in Emergency Departments across the UK.</p></article><article class="person"><img class="portrait" src="../assets/faculty-william-dawes.jpg" alt="Photo of William Dawes" width="440" height="550" loading="lazy"><h3>William Dawes</h3><p>Will is a Consultant in Paediatric Neurosurgery at Oxford University Hospital and Honorary Associate Professor at UCL Institute of Child Health. His research focusses on neonatal brain injury, specifically developing novel therapeutics for intraventricular haemorrhage. He has a specialist interest in paediatric neurotrauma and teaches on the QMUL Trauma Masters Course.</p></article><article class="person"><img class="portrait" src="../assets/faculty-syed-masud.jpg" alt="Photo of Syed Masud" width="440" height="550" loading="lazy"><h3>Syed Masud</h3><p>Syed is a consultant in Emergency Medicine, Paediatric EM, Pre hospital EM and in the police force. He has worked at the Royal London Hospital, JR in Oxford and is currently based in Cardiff.</p></article></div>
+</div>
+</section>
+<section class="section on-purple">
+<div class="wrap split center">
+<div class="stack gap-16"><h2>Learn from them in person</h2></div>
+<div class="btn-row"><a class="btn btn-dark" href="../booking/">Book a place</a><a class="btn btn-outline" href="../testimonials/">Read testimonials</a></div>
 </div>
 </section>
 </main>
