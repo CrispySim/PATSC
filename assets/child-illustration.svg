@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <circle cx="300" cy="300" r="280" fill="#ede9fe"/>
+  <ellipse cx="270" cy="512" rx="86" ry="12" fill="#c4b5fd"/>
+  <!-- string -->
+  <path d="M400 206 C 392 250, 372 292, 352 332" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+  <!-- heart balloon -->
+  <g transform="translate(400 150) scale(1.7)">
+    <path d="M0 30 C -50 -10 -45 -50 -20 -50 C -8 -50 0 -42 0 -32 C 0 -42 8 -50 20 -50 C 45 -50 50 -10 0 30 Z" fill="#6d28d9"/>
+    <path d="M-30 -34 C -24 -42 -16 -43 -12 -40" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <!-- legs -->
+  <path d="M256 430 L252 498 M286 430 L290 498" stroke="#111" stroke-width="17" stroke-linecap="round"/>
+  <ellipse cx="244" cy="506" rx="24" ry="10" fill="#111"/>
+  <ellipse cx="298" cy="506" rx="24" ry="10" fill="#111"/>
+  <!-- arms -->
+  <path d="M238 322 L208 402" stroke="#111" stroke-width="15" stroke-linecap="round" fill="none"/>
+  <path d="M304 322 L350 334" stroke="#111" stroke-width="15" stroke-linecap="round" fill="none"/>
+  <circle cx="352" cy="334" r="10" fill="#111"/>
+  <!-- body -->
+  <rect x="232" y="298" width="76" height="140" rx="30" fill="#4c1d95"/>
+  <rect x="232" y="352" width="76" height="14" fill="#6d28d9"/>
+  <!-- head -->
+  <circle cx="270" cy="248" r="42" fill="#fff" stroke="#111" stroke-width="6"/>
+  <path d="M228 246 C 224 204, 252 192, 272 196 C 296 194, 316 210, 312 246 C 296 226, 250 226, 228 246 Z" fill="#111"/>
+  <circle cx="257" cy="252" r="4.5" fill="#111"/>
+  <circle cx="283" cy="252" r="4.5" fill="#111"/>
+  <path d="M258 267 Q270 277 282 267" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+</svg>
