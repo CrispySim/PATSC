@@ -62,7 +62,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .btn-dark{background:var(--ink);color:#fff}
 .btn-dark:hover{background:#2b2b2b;color:#fff}
 .btn-outline{background:transparent;color:inherit;border-color:currentColor}
-.btn-sm{min-height:44px;padding:0 20px;font-size:15px}
+.btn-sm{min-height:44px;padding:0 18px;font-size:15px}
 .on-dark .btn-primary{background:var(--purple);color:#fff}
 .on-dark .btn-primary:hover{background:#8b5cf6;color:#fff}
 .on-dark .btn-outline{color:#fff}
@@ -80,10 +80,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .stack{display:flex;flex-direction:column}
 .gap-8{gap:8px}.gap-16{gap:16px}.gap-24{gap:24px}.gap-32{gap:32px}
 .lede{font-size:clamp(18px,1.7vw,21px);line-height:1.55;max-width:34em}
+@media (min-width:1000px){.hero-photo .split{grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);gap:40px 48px}.hero-photo .lede{font-size:18px;max-width:none;white-space:nowrap}}
 .measure{max-width:38em}
 
 /* hero */
 .hero{padding-bottom:clamp(48px,7vw,96px)}
+.hero-photo{position:relative;overflow:hidden;padding-bottom:clamp(56px,8vw,120px)}
+.hero-photo .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%}
+.hero-photo .hero-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,17,17,.93) 0%,rgba(17,17,17,.78) 50%,rgba(17,17,17,.4) 100%)}
+.hero-photo .split{position:relative;padding-top:clamp(40px,7vw,104px)}
+@media (max-width:760px){.hero-photo .hero-scrim{background:rgba(17,17,17,.82)}}
+.eyebrow{font-family:var(--display);font-weight:600;font-size:clamp(15px,1.5vw,19px);letter-spacing:.08em;text-transform:uppercase;color:var(--purple-light)}
 .hero .split{padding-top:clamp(24px,5vw,72px)}
 .hero p.lede{color:#e4e4e7}
 .page-hero{padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(40px,6vw,80px)}
@@ -92,8 +99,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 /* card with dates */
 .datecard{background:var(--paper);color:var(--ink);border-radius:8px;padding:clamp(20px,3vw,36px)}
 .datecard h2{font-size:22px;margin-bottom:8px}
-.daterow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:18px 0;border-top:1px solid var(--line)}
-.daterow .d{font-family:var(--display);font-size:clamp(22px,2.4vw,28px);font-weight:700;letter-spacing:-0.01em;line-height:1.15}
+.daterow{display:flex;flex-wrap:nowrap;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
+.daterow>div{min-width:0}
+.daterow .btn{flex-shrink:0}
+.daterow .d{font-family:var(--display);font-size:clamp(19px,1.5vw,20px);font-weight:700;letter-spacing:-0.01em;line-height:1.15}
 .daterow .s{font-size:15px;color:var(--ink-3)}
 .datecard .btn-dark{background:var(--purple)}
 .datecard .btn-dark:hover{background:var(--purple-deep)}
@@ -108,13 +117,19 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 
 /* facts */
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:32px}
-.facts .big{font-family:var(--display);font-size:clamp(36px,4vw,48px);font-weight:800;line-height:1;letter-spacing:-0.02em;color:var(--purple-deep)}
+.facts .big{font-family:var(--display);font-size:clamp(30px,3vw,36px);white-space:nowrap;font-weight:800;line-height:1;letter-spacing:-0.02em;color:var(--purple-deep)}
 .facts p{color:var(--ink-2);font-size:16px;line-height:1.55}
 
 /* photos */
 .photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px}
 .photo{aspect-ratio:4/3;background:var(--wash);border:2px dashed #8a8a8a;border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:15px;color:var(--ink-2)}
 .photos img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:8px;display:block;background:var(--wash)}
+.spot{display:block;width:100%;max-width:340px;height:auto;justify-self:center}
+.spot-sm{max-width:200px;justify-self:start}
+.map{display:block;width:100%;height:clamp(260px,34vw,380px);border:0;border-radius:8px;background:var(--wash)}
+.where{align-items:start}
+.where .map{height:100%;min-height:360px}
+.schematic img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
 .band{margin:0}
 .band img{display:block;width:100%;height:clamp(220px,36vw,520px);object-fit:cover;object-position:50% 62%}
 .banner img{display:block;width:100%;height:auto;aspect-ratio:21/9;object-fit:cover;object-position:50% 45%;border-radius:8px}
@@ -122,6 +137,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 /* faculty + quotes */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px}
 .person{border-top:3px solid var(--purple);padding-top:16px}
+.person h3{margin-bottom:8px}
+.portrait{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:8px;margin-bottom:16px;background:var(--wash)}
+.cards.faculty{grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:40px 28px}
 .person .avatar{aspect-ratio:1/1;background:var(--wash);border:2px dashed #8a8a8a;border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--ink-2);font-size:15px;margin-bottom:16px}
 .person p{color:var(--ink-2);font-size:16px}
 .quote{margin:0;padding:0;border-top:3px solid var(--purple);padding-top:16px}
@@ -145,7 +163,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 dl.kv{margin:0;display:grid;grid-template-columns:minmax(0,1fr);gap:4px}
 dl.kv dt{font-weight:600}
 dl.kv dd{margin:0 0 16px;color:var(--ink-2)}
-.big-link{font-size:clamp(20px,2.4vw,28px);font-family:var(--display);font-weight:700;letter-spacing:-0.01em;min-height:44px;display:inline-flex;align-items:center;word-break:break-word}
+.big-link{font-size:clamp(17px,1.7vw,22px);font-family:var(--display);font-weight:700;letter-spacing:-0.01em;min-height:44px;display:inline-flex;align-items:center;word-break:break-word}
 .notice{border:2px solid var(--purple);background:var(--purple-soft);color:var(--ink);border-radius:8px;padding:20px 24px}
 .notice p{color:var(--ink)}
 
@@ -175,6 +193,7 @@ dl.kv dd{margin:0 0 16px;color:var(--ink-2)}
 <main id="main">
 <section class="on-dark page-hero">
 <div class="wrap stack gap-24">
+<p class="eyebrow">Paediatric Advanced Trauma Skills Course</p>
 <h1>Contact</h1>
 <p class="lede">Questions about the course or your booking? Get in touch with the course team.</p>
 </div>
@@ -190,10 +209,25 @@ dl.kv dd{margin:0 0 16px;color:var(--ink-2)}
 <div class="stack gap-16">
 <h2>Where to find us</h2>
 <address style="font-style:normal" class="muted">
-Simulation Centre<br>Education Academy (basement of the Dental Hospital)<br>Royal London Hospital<br>Whitechapel<br>London<br>E1 1FR
+Simulation Centre<br>Education Academy (basement of the Dental Hospital)<br>Turner Street, Royal London Hospital<br>Whitechapel<br>London<br>E1 1FR
 </address>
 <p class="muted">Nearest station: Whitechapel, on the District, Hammersmith &amp; City, Overground and Elizabeth lines.</p>
-<div class="btn-row"><a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=Royal+London+Hospital+Whitechapel+London+E1+1FR">Open in Google Maps</a></div>
+<p class="muted">what3words: <a href="https://what3words.com/wounds.scrap.burst">///wounds.scrap.burst</a></p>
+</div>
+</div>
+</section>
+<section class="section on-wash">
+<div class="wrap stack gap-32">
+<h2>Finding the Education Academy</h2>
+<div class="split where">
+<div class="stack gap-16">
+<iframe class="map" title="Google Map showing the Education Academy on Turner Street, Royal London Hospital" src="https://www.google.com/maps?q=Royal+London+Dental+Hospital,+Turner+Street,+London+E1+2AD&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+<div class="btn-row"><a class="textlink" href="https://www.google.com/maps/search/?api=1&query=Royal+London+Dental+Hospital+Turner+Street+London+E1+2AD">Open in Google Maps</a><a class="textlink" href="https://what3words.com/wounds.scrap.burst">what3words: ///wounds.scrap.burst</a></div>
+</div>
+<figure class="schematic stack gap-8" style="margin:0">
+<img src="../assets/alex-wing-entrances.png" alt="Schematic map of the Alex Wing entrances. Entrance A is the Dental Hospital, entrance B on Turner Street is the Education Academy, and entrance C is the staff entrance." width="683" height="513" loading="lazy">
+<figcaption class="muted">Use entrance B on Turner Street for the Education Academy.</figcaption>
+</figure>
 </div>
 </div>
 </section>

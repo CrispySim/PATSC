@@ -62,7 +62,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .btn-dark{background:var(--ink);color:#fff}
 .btn-dark:hover{background:#2b2b2b;color:#fff}
 .btn-outline{background:transparent;color:inherit;border-color:currentColor}
-.btn-sm{min-height:44px;padding:0 20px;font-size:15px}
+.btn-sm{min-height:44px;padding:0 18px;font-size:15px}
 .on-dark .btn-primary{background:var(--purple);color:#fff}
 .on-dark .btn-primary:hover{background:#8b5cf6;color:#fff}
 .on-dark .btn-outline{color:#fff}
@@ -80,10 +80,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .stack{display:flex;flex-direction:column}
 .gap-8{gap:8px}.gap-16{gap:16px}.gap-24{gap:24px}.gap-32{gap:32px}
 .lede{font-size:clamp(18px,1.7vw,21px);line-height:1.55;max-width:34em}
+@media (min-width:1000px){.hero-photo .split{grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);gap:40px 48px}.hero-photo .lede{font-size:18px;max-width:none;white-space:nowrap}}
 .measure{max-width:38em}
 
 /* hero */
 .hero{padding-bottom:clamp(48px,7vw,96px)}
+.hero-photo{position:relative;overflow:hidden;padding-bottom:clamp(56px,8vw,120px)}
+.hero-photo .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%}
+.hero-photo .hero-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,17,17,.93) 0%,rgba(17,17,17,.78) 50%,rgba(17,17,17,.4) 100%)}
+.hero-photo .split{position:relative;padding-top:clamp(40px,7vw,104px)}
+@media (max-width:760px){.hero-photo .hero-scrim{background:rgba(17,17,17,.82)}}
+.eyebrow{font-family:var(--display);font-weight:600;font-size:clamp(15px,1.5vw,19px);letter-spacing:.08em;text-transform:uppercase;color:var(--purple-light)}
 .hero .split{padding-top:clamp(24px,5vw,72px)}
 .hero p.lede{color:#e4e4e7}
 .page-hero{padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(40px,6vw,80px)}
@@ -92,8 +99,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 /* card with dates */
 .datecard{background:var(--paper);color:var(--ink);border-radius:8px;padding:clamp(20px,3vw,36px)}
 .datecard h2{font-size:22px;margin-bottom:8px}
-.daterow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:18px 0;border-top:1px solid var(--line)}
-.daterow .d{font-family:var(--display);font-size:clamp(22px,2.4vw,28px);font-weight:700;letter-spacing:-0.01em;line-height:1.15}
+.daterow{display:flex;flex-wrap:nowrap;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
+.daterow>div{min-width:0}
+.daterow .btn{flex-shrink:0}
+.daterow .d{font-family:var(--display);font-size:clamp(19px,1.5vw,20px);font-weight:700;letter-spacing:-0.01em;line-height:1.15}
 .daterow .s{font-size:15px;color:var(--ink-3)}
 .datecard .btn-dark{background:var(--purple)}
 .datecard .btn-dark:hover{background:var(--purple-deep)}
@@ -108,13 +117,19 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 
 /* facts */
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:32px}
-.facts .big{font-family:var(--display);font-size:clamp(36px,4vw,48px);font-weight:800;line-height:1;letter-spacing:-0.02em;color:var(--purple-deep)}
+.facts .big{font-family:var(--display);font-size:clamp(30px,3vw,36px);white-space:nowrap;font-weight:800;line-height:1;letter-spacing:-0.02em;color:var(--purple-deep)}
 .facts p{color:var(--ink-2);font-size:16px;line-height:1.55}
 
 /* photos */
 .photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px}
 .photo{aspect-ratio:4/3;background:var(--wash);border:2px dashed #8a8a8a;border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:15px;color:var(--ink-2)}
 .photos img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:8px;display:block;background:var(--wash)}
+.spot{display:block;width:100%;max-width:340px;height:auto;justify-self:center}
+.spot-sm{max-width:200px;justify-self:start}
+.map{display:block;width:100%;height:clamp(260px,34vw,380px);border:0;border-radius:8px;background:var(--wash)}
+.where{align-items:start}
+.where .map{height:100%;min-height:360px}
+.schematic img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
 .band{margin:0}
 .band img{display:block;width:100%;height:clamp(220px,36vw,520px);object-fit:cover;object-position:50% 62%}
 .banner img{display:block;width:100%;height:auto;aspect-ratio:21/9;object-fit:cover;object-position:50% 45%;border-radius:8px}
@@ -122,6 +137,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 /* faculty + quotes */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px}
 .person{border-top:3px solid var(--purple);padding-top:16px}
+.person h3{margin-bottom:8px}
+.portrait{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:8px;margin-bottom:16px;background:var(--wash)}
+.cards.faculty{grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:40px 28px}
 .person .avatar{aspect-ratio:1/1;background:var(--wash);border:2px dashed #8a8a8a;border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--ink-2);font-size:15px;margin-bottom:16px}
 .person p{color:var(--ink-2);font-size:16px}
 .quote{margin:0;padding:0;border-top:3px solid var(--purple);padding-top:16px}
@@ -145,7 +163,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 dl.kv{margin:0;display:grid;grid-template-columns:minmax(0,1fr);gap:4px}
 dl.kv dt{font-weight:600}
 dl.kv dd{margin:0 0 16px;color:var(--ink-2)}
-.big-link{font-size:clamp(20px,2.4vw,28px);font-family:var(--display);font-weight:700;letter-spacing:-0.01em;min-height:44px;display:inline-flex;align-items:center;word-break:break-word}
+.big-link{font-size:clamp(17px,1.7vw,22px);font-family:var(--display);font-weight:700;letter-spacing:-0.01em;min-height:44px;display:inline-flex;align-items:center;word-break:break-word}
 .notice{border:2px solid var(--purple);background:var(--purple-soft);color:var(--ink);border-radius:8px;padding:20px 24px}
 .notice p{color:var(--ink)}
 
@@ -175,6 +193,7 @@ dl.kv dd{margin:0 0 16px;color:var(--ink-2)}
 <main id="main">
 <section class="on-dark page-hero">
 <div class="wrap stack gap-24">
+<p class="eyebrow">Paediatric Advanced Trauma Skills Course</p>
 <h1>Frequently asked questions</h1>
 
 </div>
@@ -187,7 +206,7 @@ dl.kv dd{margin:0 0 16px;color:var(--ink-2)}
 <details><summary>What is included?<span class="ic" aria-hidden="true"></span></summary><div class="ans"><p><strong>Before the course:</strong> about two weeks before, we email you a link to pre-course talks and videos.</p><p><strong>On the days:</strong> breakfast, lunch and drinks throughout. Please give any dietary requirements on your booking form.</p><p><strong>Afterwards:</strong> a certificate of participation is emailed to you. The course awards 12 CPD points (RCPCH, RCoA, RCEM).</p></div></details>
 <details><summary>What are the timings?<span class="ic" aria-hidden="true"></span></summary><div class="ans"><p>The course starts at 8.30am on both days.</p><p>On Day 1 we aim to finish at 6pm, and on Day 2 at 5.30pm.</p></div></details>
 <details><summary>What are the course fees?<span class="ic" aria-hidden="true"></span></summary><div class="ans"><p>&pound;500 for two days until May 2026, increasing to &pound;600 from November 2026.</p></div></details>
-<details><summary>Where is it held?<span class="ic" aria-hidden="true"></span></summary><div class="ans"><p>Simulation Centre, Education Academy (in the basement of the Dental Hospital), Royal London Hospital, Whitechapel, London E1 1FR.</p><p>Nearest station: Whitechapel, on the District, Hammersmith &amp; City, Overground and Elizabeth lines. <a href="https://www.google.com/maps/search/?api=1&query=Royal+London+Hospital+Whitechapel+London+E1+1FR">See map</a>.</p></div></details>
+<details><summary>Where is it held?<span class="ic" aria-hidden="true"></span></summary><div class="ans"><p>Simulation Centre, Education Academy (in the basement of the Dental Hospital), Turner Street, Royal London Hospital, Whitechapel, London E1 1FR. Use entrance B on Turner Street.</p><p>Nearest station: Whitechapel, on the District, Hammersmith &amp; City, Overground and Elizabeth lines. <a href="https://www.google.com/maps/search/?api=1&query=Royal+London+Dental+Hospital+Turner+Street+London+E1+2AD">See map</a> or use what3words: <a href="https://what3words.com/wounds.scrap.burst">///wounds.scrap.burst</a>. There is a schematic of the entrances on the <a href="../contact/">Contact page</a>.</p></div></details>
 <details><summary>What is your cancellation policy?<span class="ic" aria-hidden="true"></span></summary><div class="ans"><p>If you need to cancel for any reason, please contact us to discuss: <a href="mailto:rlhsimadmin.bartshealth@nhs.net">rlhsimadmin.bartshealth@nhs.net</a> or <a href="tel:+442035946821">020 3594 6821</a>.</p></div></details>
 </div>
 <div class="btn-row" style="margin-top:40px"><a class="btn btn-primary" href="../booking/">Book a place</a><a class="btn btn-outline" href="../contact/" style="color:var(--ink)">Ask us a question</a></div>
