@@ -149,6 +149,11 @@ dl.kv dd{margin:0 0 16px;color:var(--ink-2)}
 .notice{border:2px solid var(--purple);background:var(--purple-soft);color:var(--ink);border-radius:8px;padding:20px 24px}
 .notice p{color:var(--ink)}
 
+/* link tile */
+.brand-tile{display:flex;align-items:center;justify-content:center;background:var(--ink);border-radius:8px;padding:clamp(24px,4vw,48px);min-height:160px}
+.brand-tile img{max-width:100%;max-height:120px;width:auto;height:auto;display:block}
+.brand-tile:focus-visible{outline:3px solid var(--purple);outline-offset:3px}
+
 /* footer */
 .site-footer{background:var(--ink);color:#d4d4d8;padding-top:32px;padding-bottom:32px;font-size:14px;line-height:1.5}
 .site-footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px}
@@ -181,9 +186,24 @@ dl.kv dd{margin:0 0 16px;color:var(--ink-2)}
 </section>
 
 <section class="section">
-<div class="wrap stack gap-24">
-<p class="measure muted"><span class="todo">[Copy the links from the current Links page here, then delete the placeholder entries.]</span></p>
-<ul class="rules"><li><h3><a href="#"><span class="todo">[Link title]</span></a></h3><p><span class="todo">[One line on what this link is and why it helps.]</span></p></li><li><h3><a href="#"><span class="todo">[Link title]</span></a></h3><p><span class="todo">[One line on what this link is and why it helps.]</span></p></li><li><h3><a href="#"><span class="todo">[Link title]</span></a></h3><p><span class="todo">[One line on what this link is and why it helps.]</span></p></li><li><h3><a href="#"><span class="todo">[Link title]</span></a></h3><p><span class="todo">[One line on what this link is and why it helps.]</span></p></li></ul>
+<div class="wrap stack gap-32">
+
+<div class="split center">
+<a class="brand-tile" href="https://www.bartssimulation.com/index.html" aria-label="Barts Health Simulation Team website"><img src="https://www.bartssimulation.com/assets/logo-barts-simulation-header.png" alt="Barts Health Simulation" loading="lazy"></a>
+<div class="stack gap-16">
+<h2>Barts Health Simulation Team</h2>
+<p class="measure muted">Simulation-based training across Barts Health&rsquo;s hospitals, including courses, facilities, news and how to get in touch with the team.</p>
+<div class="btn-row"><a class="btn btn-primary" href="https://www.bartssimulation.com/index.html">Visit bartssimulation.com</a></div>
+</div>
+</div>
+
+<ul class="rules">
+<li><h3><a href="https://www.c4ts.qmul.ac.uk/">C4TS Home for Trauma Science</a></h3><p>The Centre for Trauma Sciences at Queen Mary University of London, home of trauma research and education.</p></li>
+<li><h3><a href="https://www.rcr.ac.uk/publication/paediatric-trauma-protocols">Paediatric trauma protocols</a></h3><p>Royal College of Radiologists guidance on imaging protocols for injured children.</p></li>
+<li><h3><a href="https://dontforgetthebubbles.com/">Don&rsquo;t Forget the Bubbles (DFTB)</a></h3><p>Free open-access paediatric emergency medicine and critical care education.</p></li>
+<li><h3><a href="https://www.youtube.com/watch?v=A6jn4X4BvHs">Belmont&reg; Rapid Infuser RI-2 instructional video</a></h3><p>Video demonstration of the rapid infuser used on the course.</p></li>
+<li><h3><a href="https://jamanetwork.com/journals/jamasurgery/fullarticle/2830622">Traumatic cardiac arrest / thoracotomy paper</a></h3><p>Journal article on traumatic cardiac arrest and resuscitative thoracotomy (JAMA Surgery).</p></li>
+</ul>
 </div>
 </section>
 </main>
